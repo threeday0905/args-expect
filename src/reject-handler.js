@@ -11,6 +11,9 @@ var rejectHandler = {
                     console.log(msg);
                 }
             }
+        },
+        none: function(msg) {
+
         }
     },
     getOrCreate: function(keyOrFn) {

@@ -1,6 +1,6 @@
 {
   "name": "args-expect",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "An assertion tool to make sure all arguments are as expected.",
   "main": "index.js",
   "scripts": {

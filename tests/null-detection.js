@@ -1,4 +1,4 @@
-var expect = require('../lib/args-expect'),
+var expect = require('./lib/args-expect'),
     chai = require('chai');
 
 var assert = chai.assert,

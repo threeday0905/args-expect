@@ -1,10 +1,14 @@
-var expect = require('../lib/args-expect'),
+var expect = require('./lib/args-expect'),
     chai = require('chai');
 
 var assert = chai.assert,
     should = chai.should();
 
 describe('should call error handler correctly: ', function() {
+    beforeEach(function() {
+        expect.enable();
+    });
+
     it('default mode: should throw error', function() {
         should.Throw(function() {
             expect(null).isString();
@@ -21,9 +25,9 @@ describe('should call error handler correctly: ', function() {
 
     it('log mode: should call console.warn', function() {
         var hasBeenCalled = false,
-            actualWarn = console.warn;
+            actualLog = console.log;
 
-        console.warn = function() {
+        console.log = function() {
             hasBeenCalled = true;
         };
 
@@ -34,7 +38,7 @@ describe('should call error handler correctly: ', function() {
 
         hasBeenCalled.should.equal(true);
 
-        console.warn = actualWarn;
+        console.log = actualLog;
     });
 
     it('cutsomize mode: should call cutsomize function', function() {
@@ -50,5 +54,22 @@ describe('should call error handler correctly: ', function() {
         });
 
         hasBeenCalled.should.equal(true);
+    });
+
+    it('could do a global disable, and re-enable ', function() {
+        expect.disable();
+        should.not.Throw(function() {
+            expect(null).isString();
+        });
+
+        should.not.Throw(function() {
+            var newExpect = expect.mode('log');
+            newExpect(null).isString();
+        });
+
+        expect.enable();
+        should.Throw(function() {
+            expect(null).isString();
+        });
     });
 });

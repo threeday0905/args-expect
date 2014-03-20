@@ -24,9 +24,9 @@ We ofter do the arguments checks in every function, such as below:
 
 These checks are annoying but indispensable.
 
-But we can use this tool to provide a unified assertion checking, like below:
+We can use this tool to provide a unified assertion checking, like below:
 
-    var expect = require('expect);
+    var expect = require('expect');
     function get(name) {
         expect(name).isString().notEmpty();
 
@@ -49,6 +49,7 @@ The tool has very tiny size, and easily to use, especially in node.js .
 
 ---
 ### API List
+
 1. expect(obj).isElement();
 2. expect(obj).isObject()
 3. expect(obj).isArray()
@@ -56,7 +57,8 @@ The tool has very tiny size, and easily to use, especially in node.js .
 5. expect(obj).isBoolean()
 6. expect(obj).isNull()
     - return true, if obj is **null** or **undefined**
-6. expect(obj).isEmpty()
+
+7. expect(obj).isEmpty()
     - return true, if obj is null or undefined
     - return true, if obj is string or array, and has zero length.
 
@@ -66,11 +68,11 @@ The tool has very tiny size, and easily to use, especially in node.js .
 10. expect(obj).is( type [,...] )
     - check if obj is match any of incoming types.
 
-            expect(obj).is( String, Object )
-            expect(obj).is( CustomizeClass )
+            expect(obj).is( String, Object ) // expect the object is String or Object
+            expect(obj).is( CustomizeClass ) // expect the object is instance of CustomizeClass
 
 11. expect(obj).has(propName)
-    - check if obj is an Object, and has all specified properties.
+    - check if obj is an Object and has all specified properties.
 
             expect(obj).has('key');
             expect(obj).has(['key', 'prop1']);

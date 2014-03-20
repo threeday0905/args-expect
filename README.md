@@ -65,16 +65,19 @@ The tool has very tiny size, and easily to use. Especially in node.js .
 
 10. expect(obj).is( type [,...] )
     - check obj is match any of incomint type.
-        - e.g. expect(obj).is( String, Object )
-        - e.g. expect(obj).is( CustomizeClass )
+
+            expect(obj).is( String, Object )
+            expect(obj).is( CustomizeClass )
 
 11. expect(obj).has(propName)
     - check obj is an Object, and has the specified properties.
-        - e.g. expect(obj).has('key');
-        - e.g. expect(obj).has(['key', 'prop1']);
+
+            expect(obj).has('key');
+            expect(obj).has(['key', 'prop1']);
 
     - check obj has all specified properties and match the type.
-        - e.g. expect(obj).has({
+
+            expect(obj).has({
                     key: String,
                     prop1: Number
                })

@@ -24,7 +24,7 @@ We ofter do the arguments checks in every function, such as below:
 
 These checks are annoying but indispensable.
 
-But we can use this tool to provide a unified assertion checking, as below:
+But we can use this tool to provide a unified assertion checking, like below:
 
     var expect = require('expect);
     function get(name) {
@@ -44,7 +44,7 @@ But we can use this tool to provide a unified assertion checking, as below:
 
 If any condition fail, it will throw error. (or log warn message)
 
-The tool has very tiny size, and easily to use. Especially in node.js .
+The tool has very tiny size, and easily to use, especially in node.js .
 
 
 ---
@@ -58,23 +58,23 @@ The tool has very tiny size, and easily to use. Especially in node.js .
     - return true, if obj is **null** or **undefined**
 6. expect(obj).isEmpty()
     - return true, if obj is null or undefined
-    - return true, if obj is string or array. but length is zero.
+    - return true, if obj is string or array, and has zero length.
 
 8. expect(obj).notNull()
 9. expect(obj).notEmpty()
 
 10. expect(obj).is( type [,...] )
-    - check obj is match any of incomint type.
+    - check if obj is match any of incoming types.
 
             expect(obj).is( String, Object )
             expect(obj).is( CustomizeClass )
 
 11. expect(obj).has(propName)
-    - check obj is an Object, and has the specified properties.
+    - check if obj is an Object, and has all specified properties.
 
             expect(obj).has('key');
             expect(obj).has(['key', 'prop1']);
-    - check obj has all specified properties and match the type.
+    - check if obj has all specified properties and match the given types.
 
             expect(obj).has({
                     key: String,
@@ -86,7 +86,7 @@ The tool has very tiny size, and easily to use. Especially in node.js .
 
 The default report method is throw an an error.
 
-We can use mode to switch the report method:
+We can use mode() to switch the report method:
 
     var except = require('excpet').mode('log');
 
@@ -107,6 +107,11 @@ We can disable all assertion checking:
     require('excpet').disable();
     // it will disable all error report
 
+
+---
+### Module Standard Supported
+
+This tool is support CommonJS, AMD, KMD, module standard.
 
 ---
 ### Reading Order

@@ -1,14 +1,16 @@
 var errorMessage = {
     prefix : 'Not Expected! ',
-    defMsg : '{0} failed condition: {1}',
+    defMsg : '{0} failed condition: {1} with \"{2}\"',
     msgs: {
         is: '{0) is not match expected type',
         has: '{0} does not have expected properties'
     },
-    get: function(toolName, argNey) {
+    get: function(toolName, argName, value) {
         var msg = this.msgs[toolName] || this.defMsg;
-        msg = msg.replace(/\{0\}/, argNey || 'arg')
-                 .replace(/\{1\}/, toolName + '()');
+        msg = msg.replace(/\{0\}/, argName || 'arg')
+                 .replace(/\{1\}/, toolName + '()')
+                 .replace(/\{2\}/, value ? value.toString() : '');
+
         return this.prefix + msg;
     }
     /* comment out the msg update method for reduce size

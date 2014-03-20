@@ -116,7 +116,7 @@ var tools = (function() {
             key, type;
 
         if (tools.isString(prop)) {
-            return !!obj[prop];
+            return tools.notNull(obj[prop]);
         } else if (tools.isArray(prop)) {
             for (key = prop.length; key--; ) {
                 if (tools.isString(prop[key]) && !obj[prop[key]] ) {

@@ -12,7 +12,11 @@ describe('should throw error if arg not has specific properties: ', function() {
             b: '123',
             c: { },
             d: [1, 2, 3],
-            f: function() {}
+            f: function() {},
+            m: false,
+            n: null,
+            o: undefined
+
         };
     });
 
@@ -56,6 +60,19 @@ describe('should throw error if arg not has specific properties: ', function() {
                 d: Array,
                 g: Function
             });
+        });
+    });
+
+    it('can detct false', function() {
+        should.not.Throw(function() {
+            expect(obj).has('m');
+        });
+
+        should.Throw(function() {
+            expect(obj).has('n');
+            expect(obj).has('o');
+            expect(obj).has('p');
+
         });
     });
 

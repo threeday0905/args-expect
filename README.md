@@ -74,7 +74,6 @@ The tool has very tiny size, and easily to use. Especially in node.js .
 
             expect(obj).has('key');
             expect(obj).has(['key', 'prop1']);
-
     - check obj has all specified properties and match the type.
 
             expect(obj).has({

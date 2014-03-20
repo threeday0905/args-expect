@@ -17,7 +17,7 @@
   "noempty"       : true,
   "nonbsp"        : true,
   "nonew"         : true,
-  "plusplus"      : true,
+  "plusplus"      : false,
   "undef"         : true,
   "unused"        : false,
   "strict"        : false,
@@ -70,13 +70,17 @@
     "ExpectChain"      : false,
     "rejectHandler"    : false,
     "utilityTransfer"  : false,
-    "utilityDetection" : false,
+    "tools" : false,
     "errorMessage"     : false,
     "createExpect"     : false,
     "root"             : false,
     "KISSY"            : false,
     "define"           : false,
-    "describe": false,
-    "it": false
+    "describe"         : false,
+    "it"               : false,
+    "before"           : false,
+    "after"            : false,
+    "beforeEach"       : false,
+    "afterEach"        : false
   }
 }

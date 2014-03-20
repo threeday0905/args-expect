@@ -1,28 +1,18 @@
 var errorMessage = {
-    prefix     : 'Not Expected! ',
-    defaultMsg : 'has error',
-    messages: {
-        isEmpty: '{0} is not empty',
-        isElement: '{0} is not an element',
-        isObject: '{0} is not an obejct',
-        isArray: '{0} is not an array',
-        isArguments: '{0} is not arguments',
-        isFunction: '{0} is not a function',
-        isString: '{0} is not a string',
-        isNumber: '{0} is not a number',
-        isDate: '{0} is not a date',
-        isRegExp: '{0} is not a regexp',
-        isBoolean: '{0} is not a boolean',
-        isNull: '{0} is not null or undefined',
-        notNull: '{0} is null or undefined',
-        notEmpty: '{0} is empty',
-        has: 'does not has {0} property'
+    prefix : 'Not Expected! ',
+    defMsg : '{0} failed condition: {1}',
+    msgs: {
+        is: '{0) is not match expected type',
+        has: '{0} does not have expected properties'
     },
-    get: function(type, key) {
-        var msg = this.messages[type] || this.defaultMsg;
-        msg = msg.replace(/\{0\}/, key || 'arg');
+    get: function(toolName, argNey) {
+        var msg = this.msgs[toolName] || this.defMsg;
+        msg = msg.replace(/\{0\}/, argNey || 'arg')
+                 .replace(/\{1\}/, toolName + '()');
         return this.prefix + msg;
-    },
+    }
+    /* comment out the msg update method for reduce size
+    ,
     update: function(msgs, type) {
         if (typeof msgs === 'object') {
             for (var key in msgs) {
@@ -34,5 +24,5 @@ var errorMessage = {
         } else if (typeof msgs === 'string' && typeof type === 'string') {
             this.messages[type] = msgs;
         }
-    }
+    }*/
 };

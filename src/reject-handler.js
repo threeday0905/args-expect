@@ -4,35 +4,30 @@ var rejectHandler = {
             throw new Error(msg);
         },
         log: function(msg) {
-            if (console) {
-                if (console.warn) {
-                    console.warn(msg);
-                } else if (console.log) {
-                    console.log(msg);
-                }
+            if (console && console.log) {
+                console.log(msg);
             }
         },
-        none: function(msg) {
+        none: function() {
 
         }
     },
-    getOrCreate: function(keyOrFn) {
+    generate: function(keyOrFn) {
         var rejectFn,
             methods = this.methods;
 
-        if (typeof keyOrFn === 'string') {
+        if (tools.isString(keyOrFn)) {
             rejectFn = methods[keyOrFn];
             if (!rejectFn) {
                 methods.log('can not find the reject method: ' + keyOrFn);
+                rejectFn = methods.none;
             }
-        } else if (typeof keyOrFn === 'function') {
+        } else if (tools.isFunction(keyOrFn)) {
             rejectFn = keyOrFn;
+        } else {
+            rejectFn = methods['throw'];
         }
 
-        if (typeof rejectFn !== 'function') {
-            methods.log('the reject fn is empty');
-            rejectFn = function() {};
-        }
         return rejectFn;
     }
 };

@@ -59,8 +59,8 @@ The tool has very tiny size, and easily to use, especially in node.js .
     - return true, if obj is **null** or **undefined**
 
 7. expect(obj).isEmpty()
-    - return true, if obj is null or undefined
-    - return true, if obj is string or array, and has zero length.
+    - check if obj is null or undefined,
+        or is string / array but has **zero length**.
 
 8. expect(obj).notNull()
 9. expect(obj).notEmpty()
@@ -86,7 +86,7 @@ The tool has very tiny size, and easily to use, especially in node.js .
 ---
 ### Error Report Method
 
-The default report method is throw an an error.
+The default report method is throw an error.
 
 We can use mode() to switch the report method:
 

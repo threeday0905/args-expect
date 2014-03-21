@@ -1,13 +1,24 @@
 {
   "name": "args-expect",
-  "version": "0.1.2",
-  "description": "An assertion tool to make sure all arguments are as expected.",
+  "version": "0.1.3",
+  "description": "An tiny tool to make sure all arguments are as expected.",
+  "keywords": [
+    "util",
+    "arguments",
+    "expect",
+    "assertion"
+  ],
+  "author": "Herman Lee <threeday0905@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/threeday0905/args-expect.git"
+  },
   "main": "index.js",
   "scripts": {
     "test": "grunt test",
     "build": "grunt build"
   },
-  "author": "Herman Lee <threeday0905@gmail.com>",
+
   "license": "MIT",
   "devDependencies": {
     "grunt": "~0.4.4",

@@ -1,6 +1,6 @@
 A Tiny Tool to do the Runtime Argument Test
 ===========================================
-We ofter do the arguments checks in every function, such as below:
+We are always check the arguments in every function, such as below:
 
     function get(name) {
         if (!name || !name.length) {
@@ -24,7 +24,7 @@ We ofter do the arguments checks in every function, such as below:
 
 These checks are annoying but indispensable.
 
-We can use this tool to provide a unified assertion checking, like below:
+This tool provide a unified assertion checking for your project, like below:
 
     var expect = require('expect');
     function get(name) {
@@ -90,18 +90,18 @@ The default report method is throw an error.
 
 We can use mode() to switch the report method:
 
-    var except = require('excpet').mode('log');
+    var expect = require('expect').mode('log');
 
-    except('123').isString();
+    expect('123').isString();
     // it will log warning message on console
 
 And it can run the specific report methods:
 
-    var except = require('except').mode(function(msg) {
+    var expect = require('expect').mode(function(msg) {
         alert(msg);
     });
 
-    except('123').isString();
+    expect('123').isString();
     // it will alert warning message.
 
 We can disable all assertion checking:
@@ -115,19 +115,6 @@ We can disable all assertion checking:
 
 This tool is support CommonJS, AMD, KMD, module standard.
 
----
-### Reading Order
-
-All files on src folder, the reading order as below:
-
-1. header.snippet
-2. check-tools.js
-3. error-message.js
-4. reject-handler.js
-5. expect-chain.js
-6. expect-entrance.js
-7. exports.js
-8. footer.snippet
 
 ---
 ### Questions?

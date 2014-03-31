@@ -2,7 +2,7 @@ var errorMessage = {
     prefix : 'Not Expected! ',
     defMsg : '{0} failed condition: {1} with \"{2}\"',
     msgs: {
-        is: '{0) is not match expected type',
+        is: '{0} is not match expected type',
         has: '{0} does not have expected properties'
     },
     get: function(toolName, argName, value) {

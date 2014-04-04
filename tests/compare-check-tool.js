@@ -4,7 +4,7 @@ var expect = require('./lib/args-expect'),
 var assert = chai.assert,
     should = chai.should();
 
-describe('should throw error if arg not has specific properties: ', function() {
+describe('should throw error if arg not match compared target: ', function() {
 
     it('can compare with equalTo Number', function() {
         should.not.Throw(function() {

@@ -4,18 +4,23 @@ We are always check the arguments in every function, such as below:
 
     function get(name) {
         if (!name || !name.length) {
-            throw new Error();
+            throw new Error('name is empty');
         }
 
         // code body
     }
 
-    funtion set(name, value) {
-        if (typeof value !== 'object' ||
-            !value.prop1 ||
-            typeof value.prop2 !== 'number') {
+    funtion set(config) {
+        if (typeof config !== 'object') {
+            throw new Error('config must be an object');
+        }
 
-            throw new Error();
+        if (!config.prop1) {
+            throw new Error('must provide config.prop1');
+        }
+
+        if (!typeof config.prop2 !== 'number') {
+            throw new Error('config.prop2 must be a number');
         }
 
         // code body
@@ -33,8 +38,8 @@ This tool provide a unified assertion checking for your project, like below:
         // code body
     }
 
-    funtion set(name, value) {
-        expect(value).isObject()
+    funtion set(config) {
+        expect(config).isObject()
             .has('prop1')
             .has( { 'prop2' :  Number} );
 
@@ -42,9 +47,22 @@ This tool provide a unified assertion checking for your project, like below:
     }
 
 
-If any condition fail, it will throw error. (or log warn message)
+If any condition fail, it will throw error. (or any custom event).
 
 The tool has very tiny size, and easily to use, especially in node.js .
+
+---
+### How to Use
+
+NodeJS: install via npm:
+
+    npm install args-expect
+
+Browser:
+
+    copy lib/args-expect-min.js to your project folder
+
+
 
 
 ---
@@ -65,13 +83,15 @@ The tool has very tiny size, and easily to use, especially in node.js .
 8. expect(obj).notNull()
 9. expect(obj).notEmpty()
 
-10. expect(obj).is( type [,...] )
+11. expect(obj).toEqual( value )
+
+12. expect(obj).is( type [,...] )
     - check if obj is match any of incoming types.
 
             expect(obj).is( String, Object ) // expect the object is String or Object
             expect(obj).is( CustomizeClass ) // expect the object is instance of CustomizeClass
 
-11. expect(obj).has(propName)
+13. expect(obj).has(propName)
     - check if obj is an Object and has all specified properties.
 
             expect(obj).has('key');
@@ -84,31 +104,51 @@ The tool has very tiny size, and easily to use, especially in node.js .
                })
 
 ---
+### Check Multi Args
+
+    expect.all(1, 2, 3).isNumber();
+
+use `expect.all()` to check multi arguments with one line
+
+
+---
 ### Error Report Method
 
-The default report method is throw an error.
+The default report method will throw error.
 
-We can use mode() to switch the report method:
+We can use `mode()` to create new expect obj with new report method:
 
+    // create a new expect object with log report.
     var expect = require('expect').mode('log');
 
     expect('123').isString();
-    // it will log warning message on console
+    // if any condition fail, it will log warning message on console
 
-And it can run the specific report methods:
+Or use any custom event
 
+    // create a new expect object with alert report
     var expect = require('expect').mode(function(msg) {
         alert(msg);
     });
 
-    expect('123').isString();
-    // it will alert warning message.
+    expect('123').isString(); // it will alert warning message.
 
-We can disable all assertion checking:
+Since `mode()` will create new expect instance,
+We can use `disable()` to disable all instance at one shot.
 
     require('excpet').disable();
-    // it will disable all error report
 
+
+---
+### Get The Check Result
+
+    // disable the report mode
+    expect = expect.mode('none');
+    var result = expect(1).isString();
+
+    alert(expect.rejected);
+
+use `result.rejected` to get the check result.
 
 ---
 ### Module Standard Supported

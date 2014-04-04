@@ -5,7 +5,9 @@
 var tools = (function() {
     var tools = {};
 
-    var toString = Object.prototype.toString;
+    var ObjProto = Object.prototype,
+        toString = ObjProto.toString,
+        hasOwn = ObjProto.hasOwnProperty;
 
     function addTypeCheck(typeName) {
         tools['is' + typeName] = function(obj) {
@@ -30,11 +32,21 @@ var tools = (function() {
 
     // Add some isType methods:
     //      isArguments, isFunction, isString, isNumber, isDate, isRegExp.
+    addTypeCheck('Arguments');
     addTypeCheck('Function');
     addTypeCheck('String');
     addTypeCheck('Number');
     addTypeCheck('Date');
     addTypeCheck('RegExp');
+
+    // Define a fallback version of the method in browsers (ahem, IE), where
+    // there isn't any inspectable "Arguments" type.
+    if (!tools.isArguments(arguments)) {
+        tools.isArguments = function(obj) {
+            return !!(obj && hasOwn.call(obj, 'callee'));
+        };
+    }
+
 
 
     // Is a given value a DOM element?

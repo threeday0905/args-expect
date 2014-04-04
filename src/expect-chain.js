@@ -1,16 +1,29 @@
+var slice = Array.prototype.slice;
 function ExpectChain(onReject) {
     var self = this;
 
     function createCheckWrapper(fnName, checkIt) {
-        return function(par) {
-            var args = arguments.length ?
-                    [ self.obj ].concat(Array.prototype.slice.call(arguments)) :
-                    [ self.obj ];
-
-            if (ExpectChain.isEnable && !checkIt.apply(self.obj, args)) {
+        function check(obj, name, args) {
+            var items = [obj].concat(args);
+            if (!checkIt.apply(null, items)) {
                 self.reject(
-                    errorMessage.get(fnName, self.name, self.obj, args[1])
+                    errorMessage.get(fnName, name, obj, items[1])
                 );
+            }
+        }
+
+        return function() {
+            var args = slice.call(arguments),
+                obj = self.obj;
+
+            if (ExpectChain.isEnable) {
+                if (self.multiArg && obj.length) {
+                    for (var i = 0, len = obj.length; i < len; i++) {
+                        check(obj[i], '', args);
+                    }
+                } else {
+                    check(obj, self.name, args);
+                }
             }
             return self;
         };
@@ -25,7 +38,7 @@ function ExpectChain(onReject) {
         );
     }
 
-    this.rejected = false;
+
     this.reject = function(msg) {
         if (!this.rejected) {
             this.rejected = true;
@@ -37,9 +50,15 @@ function ExpectChain(onReject) {
     };
 
     this.start = function(obj, name) {
+        this.multiArg = this.rejected = false;
+        this.name = name ||'';
         this.obj = obj;
-        this.name = name;
-        this.rejected = false;
+        return this;
+    };
+
+    this.all = function() {
+        this.start(slice.call(arguments));
+        this.multiArg = true;
         return this;
     };
 }

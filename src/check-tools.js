@@ -139,5 +139,9 @@ var tools = (function() {
         return result;
     };
 
+    tools.equalTo = function(obj, value) {
+        return obj === value;
+    };
+
     return tools;
 }());

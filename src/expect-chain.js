@@ -9,7 +9,7 @@ function ExpectChain(onReject) {
 
             if (ExpectChain.isEnable && !checkIt.apply(self.obj, args)) {
                 self.reject(
-                    errorMessage.get(fnName, self.name, self.obj)
+                    errorMessage.get(fnName, self.name, self.obj, args[1])
                 );
             }
             return self;

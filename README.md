@@ -1,5 +1,5 @@
-A Tiny Tool to do the Runtime Argument Test
-===========================================
+Runtime Argument Test
+======================
 We are always check the arguments in every function, such as below:
 
     function get(name) {

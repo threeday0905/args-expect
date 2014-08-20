@@ -25,17 +25,11 @@ var createExpect = function(onReject) {
         ExpectChain.enable();
         return this;
     };
+
     expectFn.disable = function() {
         ExpectChain.disable();
         return this;
     };
-
-    /* comment out the msg update method for reduce size
-    expectFn.msg = function(msgs, type) {
-        errorMessage.update(msgs, type);
-        return this;
-    };
-    */
 
     return expectFn;
 };

@@ -2,7 +2,10 @@
  * Most of following contents are copied from underscore
  */
 
+ /* jshint unused: false, -W079 */
 var tools = (function() {
+    /* jshint maxstatements: 30 */
+
     var tools = {};
 
     var ObjProto = Object.prototype,
@@ -108,7 +111,7 @@ var tools = (function() {
 
     tools.is = function(obj) {
         var args = arguments;
-        for (var i = 1, len = args.length; i < len; i++) {
+        for (var i = 1, len = args.length; i < len; i += 1) {
             var type = args[i],
                 method = getIsMethod( getTypeName(type) );
 
@@ -130,6 +133,7 @@ var tools = (function() {
         if (tools.isString(prop)) {
             return tools.notNull(obj[prop]);
         } else if (tools.isArray(prop)) {
+            /* jshint plusplus: false */
             for (key = prop.length; key--; ) {
                 if (tools.isString(prop[key]) && !obj[prop[key]] ) {
                     result = false;

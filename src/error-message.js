@@ -1,3 +1,4 @@
+/* jshint unused: false, -W079 */
 var errorMessage = {
     prefix : 'Not Expected! ',
     defMsg : '{0} failed condition: {1} with \"{2}\"',

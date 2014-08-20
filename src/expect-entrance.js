@@ -1,3 +1,5 @@
+/* jshint unused: false, -W079 */
+
 var createExpect = function(onReject) {
     var chain = new ExpectChain(onReject);
 

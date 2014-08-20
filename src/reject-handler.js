@@ -1,3 +1,4 @@
+/* jshint unused: false, -W079 */
 var rejectHandler = {
     methods: {
         'throw': function(msg) {

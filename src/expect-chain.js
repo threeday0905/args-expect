@@ -18,7 +18,7 @@ function ExpectChain(onReject) {
 
             if (ExpectChain.isEnable) {
                 if (self.multiArg && obj.length) {
-                    for (var i = 0, len = obj.length; i < len; i++) {
+                    for (var i = 0, len = obj.length; i < len; i += 1) {
                         check(obj[i], '', args);
                     }
                 } else {

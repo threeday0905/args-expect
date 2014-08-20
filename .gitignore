@@ -1,4 +1,61 @@
-*.gz
-*.DS_Store
-.idea
+############################
+# npm
+############################
 node_modules
+npm-debug.log
+
+
+############################
+# tmp files
+############################
+.tmp
+*.swo
+*.swp
+*.swn
+*.swm
+*.diff
+*.log
+*.patch
+*.bak
+*.log
+*.iml
+*.out
+*.gz
+*#
+*~
+
+
+############################
+# Editor & OS files
+############################
+.idea
+.DS_STORE
+.Trashes
+.project
+.rebooted
+Thumbs.db
+ehthumbs.db
+Icon?
+nbproject
+
+
+############################
+# Tests
+############################
+coverage
+lib-cov
+html-report
+
+
+############################
+# Other
+############################
+logs
+report
+.node_history
+.svn
+
+############################
+# Project Ignore files
+############################
+test/lib

@@ -1,0 +1,34 @@
+############################
+# Docs
+############################
+documents
+document
+docs
+doc
+*.md
+**/*.md
+
+############################
+# Config
+############################
+.jshintrc
+.editorconfig
+.travis.yml
+
+############################
+# Test
+############################
+benchmarks
+examples
+example
+tests
+test
+demo
+
+
+############################
+# Other
+############################
+Gruntfile.js
+gulpfile.js
+Makefile

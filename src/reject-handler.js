@@ -20,7 +20,7 @@ var rejectHandler = {
         if (tools.isString(keyOrFn)) {
             rejectFn = methods[keyOrFn];
             if (!rejectFn) {
-                methods.log('can not find the reject method: ' + keyOrFn);
+                methods.log('failed to find the reject method: ' + keyOrFn);
                 rejectFn = methods.none;
             }
         } else if (tools.isFunction(keyOrFn)) {

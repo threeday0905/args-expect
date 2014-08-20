@@ -2,7 +2,12 @@
 var rejectHandler = {
     methods: {
         'throw': function(msg) {
-            throw new Error(msg);
+            var err =  new Error(msg);
+            if (tools.isString(err.stack)) {
+                err.stack =
+                    err.stack.replace(/^ *at.+args-expect.js.+\n/gm, '');
+            }
+            throw err;
         },
         log: function(msg) {
             if (console && console.log) {

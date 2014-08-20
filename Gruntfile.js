@@ -16,13 +16,13 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         opt: {
-            src: './src',
-            dest: './lib',
-            test: './tests',
+            src  : './src',
+            dest : './lib',
+            test : './test',
 
-            output: 'args-expect.js',
-            outputMin: 'args-expect-min.js',
-            outputMap: 'args-expect.map'
+            output    : 'args-expect.js',
+            outputMin : 'args-expect-min.js',
+            outputMap : 'args-expect.map'
         },
         clean: {
             lib: {

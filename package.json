@@ -1,7 +1,7 @@
 {
   "name": "args-expect",
-  "version": "0.2.1",
-  "description": "An tiny tool to make sure all arguments are as expected.",
+  "version": "0.2.2",
+  "description": "A tiny tool to make sure all arguments are as expected.",
   "keywords": [
     "util",
     "arguments",

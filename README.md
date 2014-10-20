@@ -159,4 +159,4 @@ This tool is support CommonJS, AMD, KMD, module standard.
 ---
 ### Questions?
 
-If you have any questions, please feel free to create new issue.
+If you have any questions, feel free to create a new issue.

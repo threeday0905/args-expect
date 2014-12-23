@@ -1,0 +1,23 @@
+{
+  "name": "args-expect",
+  "version": "0.2.2",
+  "authors": [
+    "Herman Lee <threeday0905@gmail.com>"
+  ],
+  "description": "A tiny tool to make sure all arguments are as expected.",
+  "main": "./lib/args-expect",
+  "keywords": [
+    "expect",
+    "arguments",
+    "assertion"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/threeday0905/args-expect",
+  "ignore": [
+    "**/.*",
+    "src",
+    "node_modules",
+    "bower_components",
+    "test"
+  ]
+}

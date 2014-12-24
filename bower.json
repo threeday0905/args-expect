@@ -15,9 +15,13 @@
   "homepage": "https://github.com/threeday0905/args-expect",
   "ignore": [
     "**/.*",
+    "*.md",
     "src",
     "node_modules",
     "bower_components",
-    "test"
+    "test",
+    "gulpfile.js",
+    "Gruntfile.js",
+    "package.json"
   ]
 }
